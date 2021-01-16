@@ -1,0 +1,98 @@
+/*BACKGROUND*/
+body{
+    margin: 0;
+    padding: 0;
+    background: rgb(40,39,61);
+    background: linear-gradient(75deg, rgba(40,39,61,1) 1%, rgba(90,80,90,1) 9%, rgba(125,112,116,1) 17%, rgba(90,80,90,1) 28%, rgba(40,39,61,1) 70%);
+    overflow: hidden;
+}
+
+#light{
+    width: 200%;
+    height: 200%;
+    display: block;
+    position: absolute;
+    left: -100%;
+    top: -100%;
+    background: radial-gradient(circle, rgba(255,247,236,) 80%, rgba(255,255,255,0) 100%);
+    animation: moveAnim 0.3s ease 0s 1 forwards;
+}
+/*LIGHT ANIM*/
+@keyframes moveAnim {
+    0% { background: radial-gradient(circle, rgba(255, 247, 236, 0.6) 30%, rgba(255, 255, 255, 0) 100%); }
+    35% { background: radial-gradient(circle, rgba(255, 247, 236, 0.5) 20%, rgba(255, 255, 255, 0) 100%); }
+    65% { background: radial-gradient(circle, rgba(255, 247, 236, 0.4) 10%, rgba(255, 255, 255, 0) 100%); }
+    100% { background: radial-gradient(circle, rgba(255, 247, 236, 0.3) 0%, rgba(255, 255, 255, 0) 100%); }
+}
+
+/* DUST BASICS*/
+#container{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.XS, .S, .M, .L, .XL{
+    border-radius: 100%;
+    float: left;
+    display:block;
+    position: absolute;
+    background: rgb(230,194,152);
+    transition: all;
+    transition-duration: 3s;
+}
+
+/*SIZES*/
+.XS { height: 3px; width: 3px; }
+.S {  height: 5px; width: 5px; }
+.M { height: 7px; width: 7px; }
+.L { height: 10px; width: 10px; }
+.XL { height: 13px; width: 13px; }
+
+/*BLUR*/
+.blurEffect {
+    filter: blur(1px);
+}
+
+/*LOGO*/
+#logo{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-25px);
+    background: white;
+    display: none;
+    box-shadow: 0px 0px 2px 2px #FFFFFF;
+}
+/* LOGO BORDER - ANIMATED*/
+#logoBorder{
+    width: 0px;
+    height: 0px;
+    border-radius: 100%;
+    position: fixed;
+    top: 47%; /* NEEDS FIX - CHECK ERROR BELOW (transform > translate) */
+    left: 50%;
+    /* ERROR: TRANSLATION NEEDS TO BE A FIXED NUMBER */
+    transform: translateY(50px) translateX(5px);
+    transition: all;
+    display: none;
+    border: 2px solid #FFFFFF;
+    animation: growAnim 2s ease 0s infinite forwards;
+}
+
+/* ANIMATIONS*/
+@keyframes blink {
+    0%{ opacity: 1; }
+    70%{ opacity: 0; }
+    100%{ display: none;}
+}
+
+@keyframes growAnim{
+    0%{ width: 0px; height: 0px;
+    transform: translateY(50px) translateX(5px);}
+    100%{ width: 100px; height: 100px;
+    transform: translateY(-5px) translateX(-52px); display: none; }
+}
