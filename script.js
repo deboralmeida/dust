@@ -129,6 +129,7 @@ function hideParticle() {
 function bootLogo() {
     document.getElementById("logo").style.display = "block";
     document.getElementById("logoBorder").style.display = "block";
+    document.getElementById("logoBorderSmall").style.display = "block";
 }
 
 // BOOTING FUNCTION - RUNS AS SOON AS PAGE LOADS

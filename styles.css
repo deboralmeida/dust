@@ -66,6 +66,7 @@ body{
     background: white;
     display: none;
     box-shadow: 0px 0px 2px 2px #FFFFFF;
+    animation: logoGlow 1s ease 0s infinite alternate;
 }
 /* LOGO BORDER - ANIMATED*/
 #logoBorder{
@@ -81,6 +82,22 @@ body{
     display: none;
     border: 2px solid #FFFFFF;
     animation: growAnim 2s ease 0s infinite forwards;
+    box-shadow: inset 0px 0px 1px 1px #FFFFFF;
+}
+#logoBorderSmall{
+    width: 0px;
+    height: 0px;
+    border-radius: 100%;
+    position: fixed;
+    top: 47%; /* NEEDS FIX - CHECK ERROR BELOW (transform > translate) */
+    left: 50%;
+    /* ERROR: TRANSLATION NEEDS TO BE A FIXED NUMBER */
+    transform: translateY(50px) translateX(5px);
+    transition: all;
+    display: none;
+    border: 1px solid #FFFFFF;
+    animation: growAnimSmall 2s ease 0.3s infinite forwards;
+    box-shadow: inset 0px 0px 1px 1px #FFFFFF;
 }
 
 /* ANIMATIONS*/
@@ -89,10 +106,27 @@ body{
     70%{ opacity: 0; }
     100%{ display: none;}
 }
-
+@keyframes logoGlow{
+    0%{ box-shadow: 0px 0px 2px 2px #FFFFFF; }
+    100%{ box-shadow: 0px 0px 5px 5px #FFFFFF; }
+}
 @keyframes growAnim{
     0%{ width: 0px; height: 0px;
-    transform: translateY(50px) translateX(5px);}
+    transform: translateY(50px) translateX(5px);
+    box-shadow: inset 0px 0px 1px 1px #FFFFFF;
+    border: 2px solid #FFFFFF;}
     100%{ width: 100px; height: 100px;
-    transform: translateY(-5px) translateX(-52px); display: none; }
+    transform: translateY(-5px) translateX(-52px); display: none;
+    box-shadow: inset 0px 0px 10px 5px #FFFFFF;
+    border: 1px solid #FFFFFF;}
+}
+@keyframes growAnimSmall{
+    0%{ width: 0px; height: 0px;
+    transform: translateY(50px) translateX(5px);
+    box-shadow: inset 0px 0px 1px 1px #FFFFFF;
+    border: 1px solid #FFFFFF;}
+    100%{ width: 100px; height: 100px;
+    transform: translateY(-2px) translateX(-51px); display: none;
+    box-shadow: inset 0px 0px 1px 1px #FFFFFF;
+    border: 0px;}
 }
